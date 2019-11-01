@@ -1,25 +1,25 @@
-let searchBox
-let counter = 0
-let hasClicked = false
+let counter = 0, velocityBox
 
 function waitForIt() {
     setTimeout(function() {
         counter++
-        searchBox = document.querySelector('input.filter-box.input')
-        if(!searchBox && counter < 200) waitForIt()
+        velocityBox = document.querySelector('button[title="Velocity"]')
+        if(!velocityBox && counter < 200) waitForIt()
         else {
-            searchBox.onblur = function() {
-                searchBox.focus()
-                if(hasClicked) searchBox.onblur = null
-            }
+            setTimeout(function() {
+                document.querySelector('button[title="Velocity"]').click();
+                setTimeout(function() {
+                    document.querySelector('.velocity_update').querySelector('input').value = 9001;
+                    setTimeout(function() {
+                        document.querySelector('.velocity_update').querySelector('button.apply').click()
+                        console.log('done')
+                    }, 10)
+                }, 10)
+            }, 10)
         }
     }, 200)
 }
 
 window.onload = function() {
     waitForIt()
-}
-
-window.onclick = function() {
-    hasClicked = true
 }

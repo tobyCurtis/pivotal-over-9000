@@ -1,13 +1,13 @@
 {
     "manifest_version": 2,
-    "name": "Lightning Setup Search Focus",
-    "version": "0.2.0",
-    "description": "God Damnit Salesforce",
+    "name": "Pivotal Over 9000",
+    "version": "0.1.0",
+    "description": "Sets the velocity of a pivotal project to over 9000 on page load",
     "browser_action": {
-        "default_icon": "benioff.png"
+        "default_icon": "security.png"
     },
     "content_scripts": [{
         "js": ["script.js"],
-        "matches": ["https://*.lightning.force.com/lightning/setup/*"]
+        "matches": ["https://www.pivotaltracker.com/n/projects/*"]
     }]
   }
